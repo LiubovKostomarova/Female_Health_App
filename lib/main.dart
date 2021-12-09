@@ -1,6 +1,310 @@
 import 'package:flutter/material.dart';
 
 void main() {
+  runApp(SessionTypesApp());
+}
+
+class SessionType {
+  final String title;
+  final String icon;
+  final String name;
+  final String picture1;
+  final String picture2;
+
+  SessionType(this.title, this.icon, this.name, this.picture1, this.picture2);
+}
+
+class SessionTypesApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _SessionTypesAppState();
+}
+
+class _SessionTypesAppState extends State<SessionTypesApp> {
+  SessionType _selectedSessionType;
+
+  List<SessionType> sessions = [
+    SessionType(
+        'Body (Session 1)',
+        'assets/images/Session1/BodyIcon.png',
+        'Body',
+        'assets/images/Session1/RectangleBody1.png',
+        'assets/images/Session1/RectangleBody2.png'),
+    SessionType(
+        'Psychology (Session 1)',
+        'assets/images/Session1/PsychologyIcon.png',
+        'Psychology',
+        'assets/images/Session1/RectanglePsychology.png',
+        'assets/images/Session1/RectanglePsychology2.png'),
+    SessionType(
+        'Partner (Session 1)',
+        'assets/images/Session1/PartnerIcon.png',
+        'Partner',
+        'assets/images/Session1/RectanglePartner1.png',
+        'assets/images/Session1/RectanglePartner2.png'),
+    SessionType(
+        'Practice with device (Session 1)',
+        'assets/images/Session1/TickIcon.png',
+        'Practice with device',
+        'assets/images/Session1/RectanglePractice.png',
+        'assets/images/Session1/RectanglePractice2.png'),
+    SessionType(
+        'Diary (Session 1)',
+        'assets/images/Session1/DiaryIcon1.png',
+        'Diary',
+        'assets/images/Session1/RectangleDiary.png',
+        'assets/images/Session1/RectangleDiary2.png'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Session Types',
+      home: Navigator(
+        pages: [
+          MaterialPage(
+            key: ValueKey('SessionTypesListPage'),
+            child: SessionTypesListScreen(
+              sessions: sessions,
+              onTapped: _handleSessionTypeTapped,
+            ),
+          ),
+          if (_selectedSessionType != null)
+            SessionTypesDetailsPage(session: _selectedSessionType)
+        ],
+        onPopPage: (route, result) {
+          if (!route.didPop(result)) {
+            return false;
+          }
+
+          setState(() {
+            _selectedSessionType = null;
+          });
+
+          return true;
+        },
+      ),
+    );
+  }
+
+  void _handleSessionTypeTapped(SessionType session) {
+    setState(() {
+      _selectedSessionType = session;
+    });
+  }
+}
+
+class SessionTypesDetailsPage extends Page {
+  final SessionType session;
+
+  SessionTypesDetailsPage({
+    this.session,
+  }) : super(key: ValueKey(session));
+
+  Route createRoute(BuildContext context) {
+    return MaterialPageRoute(
+      settings: this,
+      builder: (BuildContext context) {
+        return SessionTypesDetailsScreen(session: session);
+      },
+    );
+  }
+}
+
+class SessionTypesListScreen extends StatelessWidget {
+  final List<SessionType> sessions;
+  final ValueChanged<SessionType> onTapped;
+
+  SessionTypesListScreen({
+    @required this.sessions,
+    @required this.onTapped,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Color(0xFF253334),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          toolbarHeight: 88,
+          leading: Image.asset('assets/images/Session1/ConnectionIcon.png'),
+          title: IconButton(
+              icon: Image.asset('assets/images/Session1/HomePageLogo.png'),
+              onPressed: () {}),
+          centerTitle: true,
+          actions: <Widget>[
+            InkWell(
+                onTap: () {},
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Image.asset(
+                        'assets/images/Session1/Profile_small.png')))
+          ],
+        ),
+        body: Column(children: [
+          Container(
+              padding: const EdgeInsets.all(5),
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Session 1',
+                      style: TextStyle(
+                          fontSize: 35,
+                          fontFamily: 'Alegreya',
+                          color: Colors.red)))),
+          Expanded(
+              child: GridView.count(
+                  primary: false,
+                  padding: const EdgeInsets.all(5),
+                  //crossAxisSpacing: 20,
+                  //mainAxisSpacing: 20,
+                  crossAxisCount: 2,
+                  //childAspectRatio: (1 / 1),
+                  children: <Widget>[
+                for (var session in sessions)
+                  ListTile(
+                    title: Container(
+                        height: 115,
+                        width: 153,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                                image: ExactAssetImage(session.picture1),
+                                fit: BoxFit.contain)),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.asset(session.icon),
+                              Text(session.name,
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Alegreya',
+                                      color: Colors.red))
+                            ])),
+                    onTap: () => onTapped(session),
+                  )
+              ])),
+          BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Color(0xFF253334),
+            elevation: 0,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                      AssetImage('assets/images/Session1/HomeIcon.png')),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                      AssetImage('assets/images/Session1/ChatIcon.png')),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                      AssetImage('assets/images/Session1/ConnectionIcon.png')),
+                  label: ''),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                      AssetImage('assets/images/Session1/Profile_small.png')),
+                  label: ''),
+            ],
+          )
+        ]));
+  }
+}
+
+class SessionTypesDetailsScreen extends StatelessWidget {
+  //final List<SessionType> sessions;
+  final SessionType session;
+
+  SessionTypesDetailsScreen({
+    @required this.session,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    var _selectedSessionType;
+
+    return Scaffold(
+        backgroundColor: Color(0xFF253334),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Image.asset('assets/images/Session1/ConnectionIcon.png'),
+          title:
+              Container(child: Image.asset('assets/images/Session1/Logo.png')),
+          centerTitle: true,
+          actions: <Widget>[
+            InkWell(
+                onTap: () {
+                  print("It's your profile");
+                },
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: Image.asset(
+                        'assets/images/Session1/Profile_small.png')))
+          ],
+        ),
+        body: Column(children: [
+          Container(
+              padding: const EdgeInsets.fromLTRB(20, 35, 0, 20),
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(session.title,
+                      style: TextStyle(
+                          fontSize: 35,
+                          fontFamily: 'Alegreya',
+                          color: Colors.red)))),
+          Expanded(
+              child: GridView.count(
+                  primary: false,
+                  padding: const EdgeInsets.all(20),
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                  crossAxisCount: 2,
+                  children: <Widget>[
+                if (session != null) ...[
+                  Container(
+                      height: 115,
+                      width: 153,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                              image: ExactAssetImage(
+                                  'assets/images/Session1/RectangleBody1.png'),
+                              fit: BoxFit.contain)),
+                      child: ListTile(
+                        title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                  'assets/images/Session1/BodyIcon.png'),
+                              Text(session.name,
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      fontFamily: 'Alegreya',
+                                      color: Colors.red))
+                            ]),
+                      ))
+                ]
+              ]))
+          /*Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (session != null) ...[
+              Text(session.name, style: const TextStyle(color: Colors.red)),
+              Image.asset(session.picture1),
+            ],
+          ],
+        ),
+      ),*/
+        ]));
+  }
+}
+
+
+/*import 'package:flutter/material.dart';
+
+void main() {
   runApp(const MyApp());
 }
 
@@ -113,3 +417,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
