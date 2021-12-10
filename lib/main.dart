@@ -326,7 +326,7 @@ class SessionTypesDetailsScreen extends StatelessWidget {
                   //mainAxisSpacing: 20,
                   //childAspectRatio: (1 / 1),
                   children: <Widget>[
-                for (var session; sessions.length < 1; session++)
+                for (var session; sessions.length < 2; session++)
                   //for (var session in sessions)
                   ListTile(
                     title: Container(
