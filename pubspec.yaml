@@ -64,6 +64,7 @@ flutter:
      - assets/images/Session1/DiaryIcon1.png
      - assets/images/Session1/DiaryIcon2.png
      - assets/images/Session1/DisplaysIcon.png
+     - assets/images/Session1/Logo.svg
      - assets/images/Session1/HomeIcon.png
      - assets/images/Session1/HomePageLogo.png
      - assets/images/Session1/NoteIcon.png
