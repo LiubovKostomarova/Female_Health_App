@@ -209,9 +209,9 @@ class SessionTypesListScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  /*Padding(
+                                  Padding(
                                       padding: EdgeInsets.all(5),
-                                      child: Image.asset(session.icon2)),*/
+                                      child: Image.asset(session.icon2)),
                                   Padding(
                                       padding: EdgeInsets.all(5),
                                       child: Image.asset(session.icon)),
