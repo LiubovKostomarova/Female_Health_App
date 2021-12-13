@@ -55,8 +55,7 @@ class SessionTypesDetailsScreen extends StatelessWidget {
                   //mainAxisSpacing: 20,
                   //childAspectRatio: (1 / 1),
                   children: <Widget>[
-                  for (int i = 0; i < sessions.length; i++)
-                  if (i == 2) break;
+                for (var session in sessions)
                   ListTile(
                     title: Container(
                         height: 115,
@@ -81,10 +80,10 @@ class SessionTypesDetailsScreen extends StatelessWidget {
                                       child: Image.asset(session.icon2)),*/
                                   Padding(
                                       padding: EdgeInsets.all(5),
-                                      child: Image.asset(session.icon)),
+                                      child: Image.asset(session.card[1])),
                                   Padding(
                                       padding: EdgeInsets.all(5),
-                                      child: Text(session.name,
+                                      child: Text(session.card[0],
                                           style: const TextStyle(
                                               fontSize: 18,
                                               fontFamily: 'AlegreyaSans',
