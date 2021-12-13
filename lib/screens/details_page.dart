@@ -39,7 +39,7 @@ class SessionTypesDetailsScreen extends StatelessWidget {
         appBar: BaseAppBar(),
         body: Column(children: [
           Container(
-              padding: const EdgeInsets.only(left: 20, top: 35),
+              padding: const EdgeInsets.only(left: 20, top: 25),
               child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(session.card[0],

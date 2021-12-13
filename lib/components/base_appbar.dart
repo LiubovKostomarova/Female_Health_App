@@ -8,7 +8,7 @@ class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        toolbarHeight: 88,
+        toolbarHeight: 100,
         leading: Image.asset('assets/images/Session1/ConnectionIcon.png'),
         title: IconButton(
             icon: Image.asset('assets/images/Session1/HomePageLogo.png'),
@@ -25,5 +25,6 @@ class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size(100, 100);
+  //Size.fromHeight(kToolbarHeight);
 }
