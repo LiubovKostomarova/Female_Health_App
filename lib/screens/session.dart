@@ -174,7 +174,7 @@ class SessionTypesListScreen extends StatelessWidget {
         appBar: BaseAppBar(),
         body: Column(children: [
           Container(
-              padding: const EdgeInsets.only(left: 20, top: 35),
+              padding: const EdgeInsets.only(left: 20, top: 20),
               child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text('Session 1',
