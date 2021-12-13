@@ -174,7 +174,7 @@ class SessionTypesListScreen extends StatelessWidget {
         appBar: BaseAppBar(),
         body: Column(children: [
           Container(
-              padding: const EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 20, top: 35),
               child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text('Session 1',
@@ -186,10 +186,8 @@ class SessionTypesListScreen extends StatelessWidget {
               child: GridView.count(
                   primary: false,
                   padding: const EdgeInsets.all(5),
-                  //crossAxisSpacing: 20,
-                  //mainAxisSpacing: 20,
                   crossAxisCount: 2,
-                  //childAspectRatio: (1 / 1),
+                  childAspectRatio: 1.5,
                   children: <Widget>[
                 for (var session in sessions)
                   ListTile(

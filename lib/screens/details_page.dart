@@ -32,13 +32,14 @@ class SessionTypesDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _selectedSessionType;
+    var session;
 
     return Scaffold(
         backgroundColor: Color(0xFF253334),
         appBar: BaseAppBar(),
         body: Column(children: [
           Container(
-              padding: const EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 20, top: 35),
               child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(session.card[0],
@@ -51,9 +52,7 @@ class SessionTypesDetailsScreen extends StatelessWidget {
                   primary: false,
                   padding: const EdgeInsets.all(5),
                   crossAxisCount: 2,
-                  //crossAxisSpacing: 20,
-                  //mainAxisSpacing: 20,
-                  //childAspectRatio: (1 / 1),
+                  childAspectRatio: 1.5,
                   children: <Widget>[
                 for (var session in sessions)
                   ListTile(
