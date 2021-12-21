@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.11.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -84,6 +84,9 @@ flutter:
      - assets/images/Session1/RectanglePsychology.png
      - assets/images/Session1/RectanglePsychology2.png
      - assets/images/Session1/TickIcon.png
+     - assets/images/Session1/chat_bubble.svg
+     - assets/images/Session1/Profile.svg
+     - assets/images/Session1/vibration.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -114,11 +117,6 @@ flutter:
            weight: 500
          - asset: assets/fonts/AlegreyaSans-Bold.ttf
            weight: 700
-
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
