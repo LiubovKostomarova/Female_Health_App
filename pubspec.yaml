@@ -58,6 +58,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
+    - assets/images/
     - assets/images/Session1/BodyIcon.png
     - assets/images/Session1/BodyIcon2.png
     - assets/images/Session1/ChatIcon.png
