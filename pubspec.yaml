@@ -88,6 +88,14 @@ flutter:
     - assets/images/Session1/chat_bubble.svg
     - assets/images/Session1/Profile.svg
     - assets/images/Session1/vibration.svg
+    - assets/backImage.png
+    - assets/avatar.png
+    - assets/leadingButton.png
+    - assets/logo.png
+    - assets/image0.png
+    - assets/image1.png
+    - assets/image2.png
+    - assets/image3.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -118,6 +126,9 @@ flutter:
           weight: 500
         - asset: assets/fonts/AlegreyaSans-Bold.ttf
           weight: 700
+    - family: SanFrancisco
+      fonts:
+        - asset: fonts/SFProDisplay-Semibold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
