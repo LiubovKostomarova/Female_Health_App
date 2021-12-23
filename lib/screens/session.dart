@@ -11,7 +11,6 @@ class SessionType {
   bool isPremium;
   String picture1;
   String picture2;
-
   SessionType(this.title, this.icon, this.picture1, this.picture2, this.cards,
       {this.isPremium = false});
 }
