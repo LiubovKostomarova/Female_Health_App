@@ -10,9 +10,14 @@ class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
         elevation: 0,
         toolbarHeight: 100,
         leading: Image.asset('assets/images/Session1/ConnectionIcon.png'),
-        title: IconButton(
-            icon: Image.asset('assets/images/Session1/HomePageLogo.png'),
-            onPressed: () {}),
+        title: GestureDetector(
+            onTap: () {},
+            child: Container(
+                margin: const EdgeInsets.only(top: 10.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Image.asset('assets/images/Session1/HomePageLogo.png'),
+                ))),
         centerTitle: true,
         actions: <Widget>[
           InkWell(
