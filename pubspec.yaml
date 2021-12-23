@@ -58,7 +58,6 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/images/
     - assets/images/Session1/BodyIcon.png
     - assets/images/Session1/BodyIcon2.png
     - assets/images/Session1/ChatIcon.png
@@ -88,14 +87,14 @@ flutter:
     - assets/images/Session1/chat_bubble.svg
     - assets/images/Session1/Profile.svg
     - assets/images/Session1/vibration.svg
-    - assets/backImage.png
-    - assets/avatar.png
-    - assets/leadingButton.png
     - assets/logo.png
+    - assets/avatar.png
+    - assets/backImage.png
     - assets/image0.png
     - assets/image1.png
     - assets/image2.png
     - assets/image3.png
+    - assets/leadingButton.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -129,7 +128,7 @@ flutter:
 
     - family: SanFrancisco
       fonts:
-        - asset: fonts/SFProDisplay-Semibold.ttf
+        - asset: assets/fonts/SFProDisplay-Semibold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

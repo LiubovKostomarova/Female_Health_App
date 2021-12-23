@@ -1,4 +1,8 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
+import 'package:reverie/components/base_appbar.dart';
+import 'package:reverie/components/bottom_menu.dart';
 
 class HomeScreenTr extends StatefulWidget {
   @override
@@ -13,6 +17,7 @@ class _HomeScreenState extends State<HomeScreenTr> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      appBar: BaseAppBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -437,6 +442,7 @@ class _HomeScreenState extends State<HomeScreenTr> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomMenu(),
     );
   }
 }
