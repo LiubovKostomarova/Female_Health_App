@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:reverie/components/profile.dart';
 
 class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
+  const BaseAppBar({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
