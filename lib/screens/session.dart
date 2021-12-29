@@ -7,6 +7,7 @@ import 'package:reverie/components/bottom_menu.dart';
 class SessionType {
   List<SessionType> cards;
   String title;
+
   String icon;
   bool isPremium;
   String picture1;
@@ -147,6 +148,7 @@ class SessionTypesListScreen extends StatelessWidget {
   final ValueChanged<SessionType> onTapped;
   String title = 'Session 1';
   final List<String> _headers = <String>[
+    "Session 1",
     "Body (Session 1)",
     "Psychology (Session 1)",
     "Partner (Session 1)",
@@ -159,67 +161,73 @@ class SessionTypesListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Color(0xFF253334),
-        appBar: BaseAppBar(),
-        body: Column(children: [
-          Container(
-              padding: const EdgeInsets.only(left: 20, top: 20),
-              child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(title,
-                      style: TextStyle(
-                          fontSize: 35,
-                          fontFamily: 'Alegreya',
-                          color: Color(0xFFFF0000))))),
-          Expanded(
-              child: GridView.count(
-                  primary: false,
-                  padding: const EdgeInsets.all(5),
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.5,
-                  children: <Widget>[
-                for (var session in sessions)
-                  ListTile(
-                    title: Container(
-                        height: 115,
-                        width: 153,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(
-                                image: ExactAssetImage(session.picture1),
-                                fit: BoxFit.cover)),
-                        child: Container(
+    return WillPopScope(
+        onWillPop: () async {
+          return true;
+        },
+        child: Scaffold(
+            backgroundColor: Color(0xFF253334),
+            appBar: BaseAppBar(),
+            body: Column(children: [
+              Container(
+                  padding: const EdgeInsets.only(left: 20, top: 20),
+                  child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(title,
+                          style: TextStyle(
+                              fontSize: 35,
+                              fontFamily: 'Alegreya',
+                              color: Color(0xFFFF0000))))),
+              Expanded(
+                  child: GridView.count(
+                      primary: false,
+                      padding: const EdgeInsets.all(5),
+                      crossAxisCount: 2,
+                      childAspectRatio: 1.5,
+                      children: <Widget>[
+                    for (var session in sessions)
+                      ListTile(
+                        title: Container(
+                            height: 115,
+                            width: 153,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 image: DecorationImage(
-                                    image: ExactAssetImage(session.picture2),
+                                    image: ExactAssetImage(session.picture1),
                                     fit: BoxFit.cover)),
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                      padding: EdgeInsets.all(5),
-                                      child: Image.asset(session.icon)),
-                                  Padding(
-                                      padding: EdgeInsets.all(5),
-                                      child: session.isPremium
-                                          ? Image.asset(
-                                              'assets/images/Session1/DiaryIcon2.png')
-                                          : null),
-                                  Padding(
-                                      padding: EdgeInsets.all(5),
-                                      child: Text(session.title,
-                                          style: const TextStyle(
-                                              fontSize: 18,
-                                              fontFamily: 'Alegreya',
-                                              color: Color(0xFFFF0000))))
-                                ]))),
-                    onTap: () => onTapped(session),
-                  )
-              ])),
-          BottomMenu()
-        ]));
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    image: DecorationImage(
+                                        image:
+                                            ExactAssetImage(session.picture2),
+                                        fit: BoxFit.cover)),
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                          padding: EdgeInsets.all(5),
+                                          child: Image.asset(session.icon)),
+                                      Padding(
+                                          padding: EdgeInsets.all(5),
+                                          child: session.isPremium
+                                              ? Image.asset(
+                                                  'assets/images/Session1/DiaryIcon2.png')
+                                              : null),
+                                      Padding(
+                                          padding: EdgeInsets.all(5),
+                                          child: Text(session.title,
+                                              style: const TextStyle(
+                                                  fontSize: 18,
+                                                  fontFamily: 'Alegreya',
+                                                  color: Color(0xFFFF0000))))
+                                    ]))),
+                        onTap: () => onTapped(session),
+                      )
+                  ])),
+              BottomMenu()
+            ])));
   }
 }
