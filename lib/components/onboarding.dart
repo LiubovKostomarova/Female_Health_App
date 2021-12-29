@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:reverie/constants.dart';
@@ -91,9 +91,9 @@ class _HomeState extends State<Home> {
                                       fontFamily: "AlegreyaSans")),
                               value: AgeList.first,
                               groupValue: _age,
-                              onChanged: (AgeList? value) {
+                              onChanged: (AgeList value) {
                                 setState(() {
-                                  _age = value!;
+                                  _age = value;
                                 });
                               },
                             ),
@@ -105,9 +105,9 @@ class _HomeState extends State<Home> {
                                       fontFamily: "AlegreyaSans")),
                               value: AgeList.second,
                               groupValue: _age,
-                              onChanged: (AgeList? value) {
+                              onChanged: (AgeList value) {
                                 setState(() {
-                                  _age = value!;
+                                  _age = value;
                                 });
                               },
                             ),
@@ -119,9 +119,9 @@ class _HomeState extends State<Home> {
                                       fontFamily: "AlegreyaSans")),
                               value: AgeList.third,
                               groupValue: _age,
-                              onChanged: (AgeList? value) {
+                              onChanged: (AgeList value) {
                                 setState(() {
-                                  _age = value!;
+                                  _age = value;
                                 });
                               },
                             ),
@@ -133,9 +133,9 @@ class _HomeState extends State<Home> {
                                       fontFamily: "AlegreyaSans")),
                               value: AgeList.forth,
                               groupValue: _age,
-                              onChanged: (AgeList? value) {
+                              onChanged: (AgeList value) {
                                 setState(() {
-                                  _age = value!;
+                                  _age = value;
                                 });
                               },
                             ),

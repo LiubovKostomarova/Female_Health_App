@@ -2,8 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:reverie/components/track.dart';
-// import 'package:reverie/components/onboarding.dart';
+// import 'package:reverie/components/track.dart';
+import 'package:reverie/components/onboarding.dart';
 // import 'package:reverie/components/profile.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreenTr(),
+      home: Home(),
     );
   }
 }

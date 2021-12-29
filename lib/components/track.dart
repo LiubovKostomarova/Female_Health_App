@@ -25,48 +25,6 @@ class _HomeScreenState extends State<HomeScreenTr> {
           ),
           child: Column(
             children: [
-              // отступ
-              const SizedBox(
-                height: 36.0,
-              ),
-              // хэдер
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    child: SizedBox(
-                      height: 20.0,
-                      width: 20.0,
-                      child: Image.asset(
-                        'assets/leadingButton.png',
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
-                  SizedBox(
-                    height: 48.0,
-                    width: 44.0,
-                    child: Image.asset(
-                      'assets/logo.png',
-                    ),
-                  ),
-                  GestureDetector(
-                    child: SizedBox(
-                      height: 35.0,
-                      width: 35.0,
-                      child: Image.asset(
-                        'assets/avatar.png',
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
-                ],
-              ),
-              // отступ
-              const SizedBox(
-                height: 36.0,
-              ),
-              // картинка
               Stack(
                 children: [
                   Image.asset(
