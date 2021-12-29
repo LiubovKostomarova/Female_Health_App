@@ -87,7 +87,6 @@ flutter:
     - assets/images/Session1/chat_bubble.svg
     - assets/images/Session1/Profile.svg
     - assets/images/Session1/vibration.svg
-    - assets/logo.png
     - assets/avatar.png
     - assets/backImage.png
     - assets/image0.png
