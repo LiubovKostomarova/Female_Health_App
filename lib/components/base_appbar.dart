@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:reverie/screens/session.dart';
-=======
-
 import 'package:reverie/components/profile.dart';
 
 class BaseAppBar extends StatelessWidget with PreferredSizeWidget {

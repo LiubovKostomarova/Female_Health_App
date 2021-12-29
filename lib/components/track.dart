@@ -3,13 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:reverie/components/base_appbar.dart';
 import 'package:reverie/components/bottom_menu.dart';
+import 'package:reverie/screens/session.dart';
 
 class HomeScreenTr extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeScreenTrState createState() => _HomeScreenTrState();
 }
 
-class _HomeScreenState extends State<HomeScreenTr> {
+class _HomeScreenTrState extends State<HomeScreenTr> {
   final Color backgroundColor = const Color(0xff253334);
   final Color red = const Color(0xffFF0000);
 
@@ -182,13 +183,19 @@ class _HomeScreenState extends State<HomeScreenTr> {
                       contentPadding: const EdgeInsets.only(
                         bottom: 0.0,
                       ),
-                      leading: SizedBox(
-                        height: 65.0,
-                        width: 65.0,
-                        child: Image.asset(
-                          'assets/image0.png',
-                        ),
-                      ),
+                      leading: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SessionTypesApp()),
+                            );
+                          },
+                          child: SizedBox(
+                            height: 65.0,
+                            width: 65.0,
+                            child: Image.asset('assets/image0.png'),
+                          )),
                       title: Text(
                         'Session 1',
                         style: TextStyle(
