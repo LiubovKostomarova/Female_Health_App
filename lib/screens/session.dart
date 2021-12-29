@@ -146,6 +146,7 @@ class SessionTypesDetailsPage extends Page {
 class SessionTypesListScreen extends StatelessWidget {
   final List<SessionType> sessions;
   final ValueChanged<SessionType> onTapped;
+
   String title = 'Session 1';
   final List<String> _headers = <String>[
     "Session 1",

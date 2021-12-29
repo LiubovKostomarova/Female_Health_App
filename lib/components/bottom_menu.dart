@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reverie/screens/session.dart';
 
 class BottomMenu extends StatelessWidget {
   @override
@@ -12,7 +13,12 @@ class BottomMenu extends StatelessWidget {
             icon: IconButton(
               icon: Image.asset('assets/images/Session1/HomeIcon.png'),
               //iconSize: 200,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SessionTypesApp()),
+                );
+              },
             ),
             backgroundColor: Color(0xFFC4C4C4),
             label: ''),
