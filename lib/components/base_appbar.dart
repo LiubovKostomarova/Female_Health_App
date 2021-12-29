@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:reverie/screens/session.dart';
+import 'package:reverie/components/profile.dart';
 
 class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
   const BaseAppBar({Key key}) : super(key: key);
@@ -11,14 +13,24 @@ class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
         toolbarHeight: 100,
         leading: Image.asset('assets/images/Session1/ConnectionIcon.png'),
         title: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SessionTypesApp()),
+              );
+            },
             child: SizedBox(
               child: Image.asset('assets/images/Session1/HomePageLogo.png'),
             )),
         centerTitle: true,
         actions: <Widget>[
           InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyProfileScreen()),
+                );
+              },
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(30),
                   child:
