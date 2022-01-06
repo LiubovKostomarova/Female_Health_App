@@ -2,8 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:reverie/constants.dart';
-import 'package:reverie/components/bottom_menu.dart';
-import 'package:reverie/components/base_appbar.dart';
+import 'package:reverie/components/track.dart';
 
 enum AgeList { first, second, third, forth }
 
@@ -22,13 +21,12 @@ class _HomeState extends State<Home> {
     return SafeArea(
       child: Scaffold(
           backgroundColor: kPrimaryColor,
-          appBar: BaseAppBar(),
           body: Container(
               alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/avatar.png"),
-                      fit: BoxFit.cover)),
+              // decoration: BoxDecoration(
+              //     image: DecorationImage(
+              //         image: AssetImage("assets/avatar.png"),
+              //         fit: BoxFit.cover)),
               child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -39,7 +37,7 @@ class _HomeState extends State<Home> {
                       height: 100,
                       alignment: Alignment.topCenter,
                       child: Image(
-                        image: AssetImage("assets/images/logo.png"),
+                        image: AssetImage("assets/logo.png"),
                       ),
                     ),
                     Container(
@@ -163,9 +161,8 @@ class _HomeState extends State<Home> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) {
-                            return NextScreen();
-                          }),
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreenTr()),
                         );
                       },
                     ),
@@ -232,7 +229,10 @@ class NextScreen extends StatelessWidget {
             SizedBox(height: 30),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreenTr()),
+                  );
                 },
                 child: Text(
                   "Finish",
@@ -250,7 +250,6 @@ class NextScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomMenu(),
     );
   }
 }
