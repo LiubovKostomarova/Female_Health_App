@@ -11,8 +11,8 @@ class BottomMenu extends StatelessWidget {
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
             icon: IconButton(
-              icon: Image.asset('assets/images/Session1/HomeIcon.png'),
-              //iconSize: 200,
+              icon: Image.asset('assets/app_icon-re.png'),
+              iconSize: 50.0,
               onPressed: () {
                 Navigator.push(
                   context,

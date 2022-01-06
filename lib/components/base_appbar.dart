@@ -20,7 +20,7 @@ class BaseAppBar extends StatelessWidget with PreferredSizeWidget {
               );
             },
             child: SizedBox(
-              child: Image.asset('assets/images/Session1/HomePageLogo.png'),
+              child: Image.asset('assets/app_icon-re.png'),
             )),
         centerTitle: true,
         actions: <Widget>[

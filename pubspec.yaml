@@ -94,6 +94,8 @@ flutter:
     - assets/image2.png
     - assets/image3.png
     - assets/leadingButton.png
+    - assets/app_icon.png
+    - assets/app_icon-re.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
